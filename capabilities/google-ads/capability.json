@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "name": "google-ads",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Google Ads API integration for account discovery, GAQL reporting and explicitly-authorized mutations.",
+  "purpose": "Canonical Google Ads technical integration for TaskRail automations.",
+  "domain": "advertising",
+  "operations": ["listAccessibleCustomers", "search", "searchStream", "mutate"],
+  "inputs": {
+    "operation": "supported operation",
+    "accessToken": "runtime OAuth token",
+    "developerToken": "runtime Google Ads developer token",
+    "customerId": "Google Ads customer id without dashes",
+    "loginCustomerId": "optional manager customer id",
+    "query": "GAQL query for search/searchStream",
+    "service": "mutation service name",
+    "payload": "operation-specific request body",
+    "apiVersion": "Google Ads API major version, defaults to v25",
+    "authorizeMutation": "required true for mutate"
+  },
+  "outputs": {"ok": "boolean", "data": "Google Ads API response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "mixed network read/write; mutate changes Google Ads resources and requires explicit mutation authorization",
+  "idempotency": "caller",
+  "authorization": {"mutation": "explicit"},
+  "status": "active",
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": ["google-ads", "ppc", "gaql", "campaigns", "advertising"]
+}

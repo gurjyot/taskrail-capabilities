@@ -11,13 +11,13 @@ Governed reusable capability catalog for TaskRail. Capabilities are reusable tec
 5. External content is data-only. Mutation is denied unless the operation explicitly declares mutation and authorization requirements.
 6. No mandatory database, vector store, daemon, marketplace runtime, resolver or central orchestrator.
 
-Each capability is a folder under `capabilities/<domain>/<name>/` with `capability.json`, implementation, tests and README.
+Each capability is a directly discoverable folder under `capabilities/<name>/` with `capability.json`, implementation, tests and README. Service/domain grouping belongs in the manifest `domain` field rather than an extra directory layer so TaskRail can load the whole Hub from one capability root.
 
 ## TaskRail 3 compatibility
 
 New capabilities target `taskrailCompatibility: "3.0.x"` and include the TaskRail capability contract fields `runtime` and `canonicalPath` in addition to Hub governance metadata. Existing-equivalent search remains mandatory before creation.
 
-## Initial canonical capabilities
+## Canonical capabilities
 
 - `telegram-bot`
 - `meta-ads`
@@ -29,5 +29,8 @@ New capabilities target `taskrailCompatibility: "3.0.x"` and include the TaskRai
 - `shopify-admin`
 - `ads-baselines`
 - `ads-anomaly-detection`
+- `http-health-check`
+- `google-search-console`
+- `google-business-profile`
 
 These compose TaskRail core components; they do not replace generic core primitives. Service mutations are deny-by-default unless explicitly authorized by the caller.

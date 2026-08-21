@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "name": "mainwp",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable MainWP integration for child-site inventory and operational status retrieval.",
+  "purpose": "Canonical MainWP technical access for multi-site monitoring automations.",
+  "domain": "wordpress",
+  "operations": [
+    "listSites",
+    "getSite",
+    "getSiteStatus"
+  ],
+  "inputs": {
+    "operation": "supported read operation",
+    "endpoint": "MainWP API endpoint",
+    "credentials": "runtime authorization material",
+    "siteId": "optional site id"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "data": "normalized MainWP response"
+  },
+  "components": [
+    "http",
+    "config",
+    "log",
+    "retry",
+    "timeout"
+  ],
+  "sideEffects": "network-read-only",
+  "idempotency": "not-applicable",
+  "authorization": {
+    "mutation": "denied"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "mainwp",
+    "wordpress",
+    "sites",
+    "monitoring"
+  ]
+}

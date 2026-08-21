@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "name": "ads-baselines",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Deterministic advertising baseline calculator for reusable period comparisons.",
+  "purpose": "Compute reusable advertising performance baselines without campaign-specific decisions.",
+  "domain": "advertising",
+  "operations": [
+    "calculate"
+  ],
+  "inputs": {
+    "rows": "dated metric rows",
+    "metrics": "metric names",
+    "windows": "day windows such as 7,14,30"
+  },
+  "outputs": {
+    "windows": "aggregated metric baselines by window"
+  },
+  "components": [],
+  "sideEffects": "none",
+  "idempotency": "not-applicable",
+  "authorization": {
+    "mutation": "denied"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "ads",
+    "baseline",
+    "metrics",
+    "7d",
+    "14d",
+    "30d"
+  ]
+}

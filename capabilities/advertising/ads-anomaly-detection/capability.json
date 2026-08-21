@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "name": "ads-anomaly-detection",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Deterministic advertising metric anomaly detector using explicit baseline thresholds.",
+  "purpose": "Identify reusable advertising metric deviations without deciding campaign actions.",
+  "domain": "advertising",
+  "operations": [
+    "detect"
+  ],
+  "inputs": {
+    "current": "current metric map",
+    "baseline": "baseline metric map",
+    "thresholds": "per-metric relative deviation thresholds"
+  },
+  "outputs": {
+    "anomalies": "bounded list of metric deviations"
+  },
+  "components": [],
+  "sideEffects": "none",
+  "idempotency": "not-applicable",
+  "authorization": {
+    "mutation": "denied"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "ads",
+    "anomaly",
+    "metrics",
+    "baseline",
+    "deviation"
+  ]
+}

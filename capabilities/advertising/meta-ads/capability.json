@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "name": "meta-ads",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Canonical Meta Marketing API capability for account, campaign, ad set, ad and insights operations.",
+  "purpose": "Reusable Meta Ads API access without embedding advertising business decisions.",
+  "domain": "advertising",
+  "operations": [
+    "listCampaigns",
+    "listAdSets",
+    "listAds",
+    "getInsights",
+    "getObjectStatus",
+    "updateBudget",
+    "updateStatus"
+  ],
+  "inputs": {
+    "operation": "supported operation name",
+    "accessToken": "runtime secret; never persisted",
+    "objectId": "Meta object/account id",
+    "params": "bounded API parameters",
+    "authorizeMutation": "required true for update operations"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "data": "Meta API response data"
+  },
+  "components": [
+    "http",
+    "config",
+    "log",
+    "retry",
+    "timeout",
+    "concurrency"
+  ],
+  "sideEffects": "mixed network read/write; budget/status updates are mutations",
+  "idempotency": "caller",
+  "authorization": {
+    "mutation": "explicit"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "meta",
+    "facebook",
+    "ads",
+    "campaign",
+    "insights"
+  ]
+}

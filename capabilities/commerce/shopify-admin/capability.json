@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "name": "shopify-admin",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Shopify Admin API integration for product, order, customer and inventory operations.",
+  "purpose": "Canonical Shopify Admin technical integration for TaskRail automations.",
+  "domain": "commerce",
+  "operations": [
+    "graphql",
+    "getProducts",
+    "getOrders",
+    "updateProduct",
+    "adjustInventory"
+  ],
+  "inputs": {
+    "operation": "supported operation",
+    "shopDomain": "myshopify.com domain",
+    "accessToken": "runtime Admin API token",
+    "query": "GraphQL query",
+    "variables": "GraphQL variables",
+    "authorizeMutation": "required true for update operations"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "data": "Shopify Admin API response"
+  },
+  "components": [
+    "http",
+    "config",
+    "log",
+    "retry",
+    "timeout"
+  ],
+  "sideEffects": "mixed network read/write; product/inventory updates are mutations",
+  "idempotency": "caller",
+  "authorization": {
+    "mutation": "explicit"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "shopify",
+    "admin",
+    "products",
+    "orders",
+    "inventory"
+  ]
+}

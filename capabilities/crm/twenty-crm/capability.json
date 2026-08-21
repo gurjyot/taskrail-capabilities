@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "name": "twenty-crm",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Twenty CRM GraphQL integration for records and metadata operations.",
+  "purpose": "Canonical Twenty CRM technical integration for TaskRail automations.",
+  "domain": "crm",
+  "operations": [
+    "query",
+    "createRecord",
+    "updateRecord",
+    "deleteRecord"
+  ],
+  "inputs": {
+    "operation": "supported operation name",
+    "endpoint": "Twenty GraphQL endpoint",
+    "accessToken": "runtime secret",
+    "query": "GraphQL document",
+    "variables": "GraphQL variables",
+    "authorizeMutation": "required true for create/update/delete"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "data": "GraphQL response data"
+  },
+  "components": [
+    "http",
+    "config",
+    "log",
+    "retry",
+    "timeout"
+  ],
+  "sideEffects": "mixed network read/write; create/update/delete are mutations",
+  "idempotency": "caller",
+  "authorization": {
+    "mutation": "explicit"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "twenty",
+    "crm",
+    "graphql",
+    "opportunity",
+    "contact"
+  ]
+}

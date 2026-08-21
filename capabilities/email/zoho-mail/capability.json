@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "name": "zoho-mail",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Zoho Mail integration for account, folder, message and draft operations.",
+  "purpose": "Canonical Zoho Mail technical integration for TaskRail email automations.",
+  "domain": "email",
+  "operations": [
+    "listMessages",
+    "getMessage",
+    "createDraft",
+    "sendDraft"
+  ],
+  "inputs": {
+    "operation": "supported operation",
+    "accessToken": "runtime OAuth token",
+    "accountId": "Zoho Mail account id",
+    "params": "operation parameters",
+    "authorizeMutation": "required true for sendDraft"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "data": "Zoho Mail response data"
+  },
+  "components": [
+    "http",
+    "config",
+    "log",
+    "retry",
+    "timeout"
+  ],
+  "sideEffects": "mixed network read/write; sendDraft sends external mail; mutation operations require explicit authorization",
+  "idempotency": "caller",
+  "authorization": {
+    "mutation": "explicit"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "zoho",
+    "mail",
+    "email",
+    "draft"
+  ]
+}

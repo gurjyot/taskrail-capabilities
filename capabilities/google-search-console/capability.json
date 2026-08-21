@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "name": "google-search-console",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Google Search Console integration for search performance, sitemaps and URL inspection.",
+  "purpose": "Canonical read-only Google Search Console technical integration for TaskRail automations.",
+  "domain": "google",
+  "operations": ["listSites", "querySearchAnalytics", "listSitemaps", "inspectUrl"],
+  "inputs": {
+    "operation": "supported operation",
+    "accessToken": "runtime OAuth token",
+    "siteUrl": "Search Console property URL or sc-domain property",
+    "inspectionUrl": "URL to inspect when operation is inspectUrl",
+    "params": "operation-specific query/body parameters"
+  },
+  "outputs": {"ok": "boolean", "data": "Google Search Console API response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "none; network reads only",
+  "idempotency": "not-applicable",
+  "authorization": {"mutation": "none"},
+  "status": "active",
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": ["google", "search-console", "seo", "search-analytics", "indexing", "sitemap"]
+}

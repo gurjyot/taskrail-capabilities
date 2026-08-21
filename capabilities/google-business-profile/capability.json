@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "name": "google-business-profile",
+  "version": "1.0.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Reusable Google Business Profile Performance integration for local search visibility and interaction metrics.",
+  "purpose": "Canonical Google Business Profile performance integration for TaskRail automations.",
+  "domain": "google",
+  "operations": ["getDailyMetrics", "fetchMultiDailyMetrics", "listSearchKeywordsMonthly"],
+  "inputs": {
+    "operation": "supported operation",
+    "accessToken": "runtime OAuth token with business.manage scope",
+    "locationId": "unobfuscated Google Business Profile location id",
+    "params": "Google Business Profile Performance query parameters"
+  },
+  "outputs": {"ok": "boolean", "data": "Google Business Profile Performance API response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "none; network reads only",
+  "idempotency": "not-applicable",
+  "authorization": {"mutation": "none"},
+  "status": "active",
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": ["google", "business-profile", "gbp", "local-seo", "maps", "search-keywords", "performance"]
+}

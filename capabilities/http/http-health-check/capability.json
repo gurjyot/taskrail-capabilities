@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "name": "http-health-check",
+  "version": "0.1.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Perform a bounded HTTP availability check.",
+  "purpose": "Reusable deterministic HTTP health probing for automations.",
+  "domain": "http",
+  "operations": [
+    "check"
+  ],
+  "inputs": {
+    "target": "URL string",
+    "timeoutMs": "optional bounded integer"
+  },
+  "outputs": {
+    "ok": "boolean",
+    "status": "number|null",
+    "classification": "string"
+  },
+  "components": [
+    "http"
+  ],
+  "sideEffects": "network-read-only",
+  "idempotency": "idempotent",
+  "authorization": {
+    "mutation": "denied"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "http",
+    "health",
+    "availability",
+    "probe"
+  ]
+}

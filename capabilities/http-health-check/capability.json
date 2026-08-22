@@ -6,37 +6,16 @@
   "description": "Perform a bounded HTTP availability check.",
   "purpose": "Reusable deterministic HTTP health probing for automations.",
   "domain": "http",
-  "operations": [
-    "check"
-  ],
-  "inputs": {
-    "target": "URL string",
-    "timeoutMs": "optional bounded integer"
-  },
-  "outputs": {
-    "ok": "boolean",
-    "status": "number|null",
-    "classification": "string"
-  },
-  "components": [
-    "http"
-  ],
-  "sideEffects": "network-read-only",
-  "idempotency": "idempotent",
-  "authorization": {
-    "mutation": "denied"
-  },
+  "operations": ["check"],
+  "inputs": {"target": "URL string", "timeoutMs": "optional bounded integer"},
+  "outputs": {"ok": "boolean", "status": "number|null", "classification": "string"},
+  "components": ["http"],
+  "sideEffects": "read",
+  "idempotency": "not-applicable",
+  "authorization": {"mutation": "denied"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "http",
-    "health",
-    "availability",
-    "probe"
-  ]
+  "keywords": ["http", "health", "availability", "probe"]
 }

@@ -6,12 +6,7 @@
   "description": "Reusable Google Sheets API integration for reading, appending and updating values.",
   "purpose": "Canonical Google Sheets technical integration for TaskRail automations.",
   "domain": "google",
-  "operations": [
-    "getValues",
-    "appendValues",
-    "updateValues",
-    "batchGet"
-  ],
+  "operations": ["getValues", "appendValues", "updateValues", "batchGet"],
   "inputs": {
     "operation": "supported operation",
     "accessToken": "runtime OAuth token",
@@ -20,33 +15,14 @@
     "values": "write values",
     "authorizeMutation": "required true for append/update"
   },
-  "outputs": {
-    "ok": "boolean",
-    "data": "Google Sheets API response"
-  },
-  "components": [
-    "http",
-    "config",
-    "log",
-    "retry",
-    "timeout"
-  ],
-  "sideEffects": "mixed network read/write; append/update mutate spreadsheets; mutation operations require explicit authorization",
+  "outputs": {"ok": "boolean", "data": "Google Sheets API response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "mixed",
   "idempotency": "caller",
-  "authorization": {
-    "mutation": "explicit"
-  },
+  "authorization": {"mutation": "explicit"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "google",
-    "sheets",
-    "spreadsheet",
-    "rows"
-  ]
+  "keywords": ["google", "sheets", "spreadsheet", "rows"]
 }

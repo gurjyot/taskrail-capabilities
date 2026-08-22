@@ -21,7 +21,7 @@
   },
   "outputs": {"ok": "boolean", "data": "Google Ads API response"},
   "components": ["http", "config", "log", "retry", "timeout"],
-  "sideEffects": "mixed network read/write; mutate changes Google Ads resources and requires explicit mutation authorization",
+  "sideEffects": "mixed",
   "idempotency": "caller",
   "authorization": {"mutation": "explicit"},
   "status": "active",

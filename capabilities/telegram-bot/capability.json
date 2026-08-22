@@ -6,45 +6,16 @@
   "description": "Reusable Telegram Bot API integration for notifications and bot message operations.",
   "purpose": "Canonical Telegram Bot API transport for TaskRail automations.",
   "domain": "messaging",
-  "operations": [
-    "sendMessage",
-    "editMessageText",
-    "deleteMessage",
-    "sendDocument"
-  ],
-  "inputs": {
-    "operation": "supported operation name",
-    "botToken": "runtime secret; never persisted",
-    "payload": "operation-specific Telegram payload",
-    "authorizeMutation": "required true for edit/delete operations"
-  },
-  "outputs": {
-    "ok": "boolean",
-    "result": "normalized Telegram API result"
-  },
-  "components": [
-    "http",
-    "config",
-    "log",
-    "retry",
-    "timeout"
-  ],
-  "sideEffects": "mixed network read/write; edit/delete are mutations",
+  "operations": ["sendMessage", "editMessageText", "deleteMessage", "sendDocument"],
+  "inputs": {"operation": "supported operation name", "botToken": "runtime secret; never persisted", "payload": "operation-specific Telegram payload", "authorizeMutation": "required true for edit/delete operations"},
+  "outputs": {"ok": "boolean", "result": "normalized Telegram API result"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "mixed",
   "idempotency": "caller",
-  "authorization": {
-    "mutation": "explicit"
-  },
+  "authorization": {"mutation": "explicit"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "telegram",
-    "bot",
-    "notification",
-    "message"
-  ]
+  "keywords": ["telegram", "bot", "notification", "message"]
 }

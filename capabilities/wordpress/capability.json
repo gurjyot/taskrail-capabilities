@@ -6,49 +6,16 @@
   "description": "Reusable WordPress REST API integration for posts, pages, media and site data.",
   "purpose": "Canonical WordPress REST technical integration across TaskRail automations.",
   "domain": "wordpress",
-  "operations": [
-    "get",
-    "list",
-    "create",
-    "update",
-    "delete"
-  ],
-  "inputs": {
-    "operation": "supported operation",
-    "baseUrl": "WordPress site URL",
-    "resource": "REST resource path",
-    "authorization": "runtime authorization material",
-    "payload": "write payload",
-    "authorizeMutation": "required true for create/update/delete"
-  },
-  "outputs": {
-    "ok": "boolean",
-    "data": "WordPress REST response"
-  },
-  "components": [
-    "http",
-    "config",
-    "log",
-    "retry",
-    "timeout"
-  ],
-  "sideEffects": "mixed network read/write; create/update/delete are mutations",
+  "operations": ["get", "list", "create", "update", "delete"],
+  "inputs": {"operation": "supported operation", "baseUrl": "WordPress site URL", "resource": "REST resource path", "authorization": "runtime authorization material", "payload": "write payload", "authorizeMutation": "required true for create/update/delete"},
+  "outputs": {"ok": "boolean", "data": "WordPress REST response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "mixed",
   "idempotency": "caller",
-  "authorization": {
-    "mutation": "explicit"
-  },
+  "authorization": {"mutation": "explicit"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "wordpress",
-    "wp-rest",
-    "posts",
-    "pages",
-    "media"
-  ]
+  "keywords": ["wordpress", "wp-rest", "posts", "pages", "media"]
 }

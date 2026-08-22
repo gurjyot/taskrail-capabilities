@@ -6,51 +6,16 @@
   "description": "Canonical Meta Marketing API capability for account, campaign, ad set, ad and insights operations.",
   "purpose": "Reusable Meta Ads API access without embedding advertising business decisions.",
   "domain": "advertising",
-  "operations": [
-    "listCampaigns",
-    "listAdSets",
-    "listAds",
-    "getInsights",
-    "getObjectStatus",
-    "updateBudget",
-    "updateStatus"
-  ],
-  "inputs": {
-    "operation": "supported operation name",
-    "accessToken": "runtime secret; never persisted",
-    "objectId": "Meta object/account id",
-    "params": "bounded API parameters",
-    "authorizeMutation": "required true for update operations"
-  },
-  "outputs": {
-    "ok": "boolean",
-    "data": "Meta API response data"
-  },
-  "components": [
-    "http",
-    "config",
-    "log",
-    "retry",
-    "timeout",
-    "concurrency"
-  ],
-  "sideEffects": "mixed network read/write; budget/status updates are mutations",
+  "operations": ["listCampaigns", "listAdSets", "listAds", "getInsights", "getObjectStatus", "updateBudget", "updateStatus"],
+  "inputs": {"operation": "supported operation name", "accessToken": "runtime secret; never persisted", "objectId": "Meta object/account id", "params": "bounded API parameters", "authorizeMutation": "required true for update operations"},
+  "outputs": {"ok": "boolean", "data": "Meta API response data"},
+  "components": ["http", "config", "log", "retry", "timeout", "concurrency"],
+  "sideEffects": "mixed",
   "idempotency": "caller",
-  "authorization": {
-    "mutation": "explicit"
-  },
+  "authorization": {"mutation": "explicit"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "meta",
-    "facebook",
-    "ads",
-    "campaign",
-    "insights"
-  ]
+  "keywords": ["meta", "facebook", "ads", "campaign", "insights"]
 }

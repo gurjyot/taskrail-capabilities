@@ -15,7 +15,7 @@
   },
   "outputs": {"ok": "boolean", "data": "Google Business Profile Performance API response"},
   "components": ["http", "config", "log", "retry", "timeout"],
-  "sideEffects": "none; network reads only",
+  "sideEffects": "read",
   "idempotency": "not-applicable",
   "authorization": {"mutation": "none"},
   "status": "active",

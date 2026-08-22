@@ -6,44 +6,16 @@
   "description": "Reusable MainWP integration for child-site inventory and operational status retrieval.",
   "purpose": "Canonical MainWP technical access for multi-site monitoring automations.",
   "domain": "wordpress",
-  "operations": [
-    "listSites",
-    "getSite",
-    "getSiteStatus"
-  ],
-  "inputs": {
-    "operation": "supported read operation",
-    "endpoint": "MainWP API endpoint",
-    "credentials": "runtime authorization material",
-    "siteId": "optional site id"
-  },
-  "outputs": {
-    "ok": "boolean",
-    "data": "normalized MainWP response"
-  },
-  "components": [
-    "http",
-    "config",
-    "log",
-    "retry",
-    "timeout"
-  ],
-  "sideEffects": "network-read-only",
+  "operations": ["listSites", "getSite", "getSiteStatus"],
+  "inputs": {"operation": "supported read operation", "endpoint": "MainWP API endpoint", "credentials": "runtime authorization material", "siteId": "optional site id"},
+  "outputs": {"ok": "boolean", "data": "normalized MainWP response"},
+  "components": ["http", "config", "log", "retry", "timeout"],
+  "sideEffects": "read",
   "idempotency": "not-applicable",
-  "authorization": {
-    "mutation": "denied"
-  },
+  "authorization": {"mutation": "denied"},
   "status": "active",
-  "tests": {
-    "required": true,
-    "command": "node --test test/*.test.mjs"
-  },
+  "tests": {"required": true, "command": "node --test test/*.test.mjs"},
   "runtime": "node",
   "canonicalPath": "index.mjs",
-  "keywords": [
-    "mainwp",
-    "wordpress",
-    "sites",
-    "monitoring"
-  ]
+  "keywords": ["mainwp", "wordpress", "sites", "monitoring"]
 }

@@ -1,0 +1,1 @@
+Read `/AGENTS.md` and `/docs/README.md` before changes. Documentation is part of the capability contract and must be updated in the same iteration. Search/reuse/extend before creating, keep capabilities generic and secret-free, make mutation/authorization explicit, and never claim tests/provider/runtime verification that did not actually run.

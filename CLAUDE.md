@@ -1,0 +1,3 @@
+# Claude repository instructions
+
+Read `AGENTS.md` and `docs/README.md` before changing or creating a capability. Documentation is part of the capability contract and must be updated in the same iteration. Search/reuse/extend before creating, keep capabilities generic and deterministic, never add secrets, make mutation/authorization explicit, and never claim provider/runtime verification that did not actually run. `AGENTS.md` is authoritative.

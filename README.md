@@ -34,3 +34,12 @@ New capabilities target `taskrailCompatibility: "3.0.x"` and include the TaskRai
 - `google-business-profile`
 
 These compose TaskRail core components; they do not replace generic core primitives. Service mutations are deny-by-default unless explicitly authorized by the caller.
+
+## Documentation
+
+- `AGENTS.md` — mandatory agent/contributor rules.
+- `docs/README.md` — documentation index.
+- `docs/ARCHITECTURE.md` — capability ownership, layering, governance and mutation/security boundaries.
+- `docs/DOCUMENTATION_POLICY.md` — same-iteration documentation maintenance rule.
+
+Every capability's local README and `capability.json` are part of its contract. Operation/config/security changes are incomplete until those documents are updated.

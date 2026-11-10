@@ -43,3 +43,11 @@ These compose TaskRail core components; they do not replace generic core primiti
 - `docs/DOCUMENTATION_POLICY.md` — same-iteration documentation maintenance rule.
 
 Every capability's local README and `capability.json` are part of its contract. Operation/config/security changes are incomplete until those documents are updated.
+
+## Optional evidence capabilities
+
+- `postgres-health` collects bounded read-only database metadata and evaluates freshness, backup and restore evidence.
+- `jev-decision` wraps an explicitly supplied Jev transport with typed choices, confidence review and timeouts.
+- `multimodal-evidence` validates authorized local media and delegates perception to an existing gateway.
+
+These capabilities add no daemon, mandatory model or database dependency. Clients, transport credentials, schedules, thresholds and production evidence remain caller-owned.

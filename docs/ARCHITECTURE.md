@@ -54,3 +54,11 @@ Capabilities compose TaskRail core components; they do not replace or fork gener
 ## Documentation invariant
 
 A capability's README and manifest are part of its public contract. Adding/changing an operation without documenting inputs, outputs, errors, runtime requirements, side effects, mutation authorization, and compatibility leaves the capability incomplete.
+
+## Optional evidence capabilities
+
+- `postgres-health` collects bounded read-only database metadata and evaluates freshness, backup and restore evidence.
+- `jev-decision` wraps an explicitly supplied Jev transport with typed choices, confidence review and timeouts.
+- `multimodal-evidence` validates authorized local media and delegates perception to an existing gateway.
+
+These capabilities add no daemon, mandatory model or database dependency. Clients, transport credentials, schedules, thresholds and production evidence remain caller-owned.

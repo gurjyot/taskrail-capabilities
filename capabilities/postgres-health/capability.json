@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "name": "postgres-health",
+  "version": "0.1.0",
+  "taskrailCompatibility": "3.0.x",
+  "description": "Read-only database pressure and timestamped freshness backup restore evidence.",
+  "purpose": "Read-only database pressure and timestamped freshness backup restore evidence.",
+  "domain": "postgres",
+  "operations": [
+    "inspect",
+    "assessEvidence"
+  ],
+  "inputs": {
+    "contract": "See README for injected clients, limits and evidence"
+  },
+  "outputs": {
+    "status": "Explicit health or decision state"
+  },
+  "components": [],
+  "sideEffects": "read",
+  "idempotency": "not-applicable",
+  "authorization": {
+    "mutation": "denied"
+  },
+  "status": "active",
+  "tests": {
+    "required": true,
+    "command": "node --test test/*.test.mjs"
+  },
+  "runtime": "node",
+  "canonicalPath": "index.mjs",
+  "keywords": [
+    "postgres",
+    "evidence",
+    "bounded"
+  ]
+}

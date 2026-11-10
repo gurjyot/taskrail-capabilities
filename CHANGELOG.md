@@ -16,3 +16,7 @@
 ## 0.1.0
 
 - Initial ecosystem foundation.
+
+## 0.4.0
+
+Optional PostgreSQL health, typed Jev judgment and external multimodal evidence adapters. No mandatory runtime dependencies.

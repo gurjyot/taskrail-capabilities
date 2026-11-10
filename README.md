@@ -51,3 +51,5 @@ Every capability's local README and `capability.json` are part of its contract. 
 - `multimodal-evidence` validates authorized local media and delegates perception to an existing gateway.
 
 These capabilities add no daemon, mandatory model or database dependency. Clients, transport credentials, schedules, thresholds and production evidence remain caller-owned.
+
+Jev 0.2 adds an optional official HTTP transport and atomic daily budget reservations using caller-owned TaskRail idempotency storage. No provider key is stored in the Hub.

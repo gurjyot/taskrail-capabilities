@@ -20,3 +20,7 @@
 ## 0.4.0
 
 Optional PostgreSQL health, typed Jev judgment and external multimodal evidence adapters. No mandatory runtime dependencies.
+
+## 0.4.1
+
+Jev HTTPS provider adapter and durable per-automation UTC-day call/reserved-budget limits.

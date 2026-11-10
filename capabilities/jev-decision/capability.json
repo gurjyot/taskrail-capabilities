@@ -1,13 +1,15 @@
 {
   "schema": 1,
   "name": "jev-decision",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "taskrailCompatibility": "3.0.x",
   "description": "Typed confidence-gated judgment using an explicitly supplied authorized Jev transport.",
   "purpose": "Typed confidence-gated judgment using an explicitly supplied authorized Jev transport.",
   "domain": "decision",
   "operations": [
-    "decide"
+    "decide",
+    "createJevEvaluator",
+    "createBudgetedEvaluator"
   ],
   "inputs": {
     "contract": "See README for injected clients, limits and evidence"
@@ -15,7 +17,9 @@
   "outputs": {
     "status": "Explicit health or decision state"
   },
-  "components": [],
+  "components": [
+    "idempotency"
+  ],
   "sideEffects": "read",
   "idempotency": "not-applicable",
   "authorization": {
